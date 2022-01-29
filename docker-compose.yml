@@ -1,0 +1,29 @@
+version: '2'
+services:
+  app:
+    restart: always
+    build: ./Web
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./Web/WebAdmin:/code
+      - /var/lib/docker:/var/lib/docker
+    ports:
+      - "65533:8000"
+    privileged: true
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./Mysql:/var/lib/mysql"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypassword
+      - MYSQL_DATABASE=django_app
+  db-admin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - db:db
+    ports:
+      - "65534:80"
+    

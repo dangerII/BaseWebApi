@@ -1,0 +1,8 @@
+Mysql/
+test/
+Webbak/
+.vscode/
+upload/
+media/
+
+*.pyc
