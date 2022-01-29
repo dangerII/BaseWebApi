@@ -6,7 +6,6 @@ services:
     command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./Web/WebAdmin:/code
-      - /var/lib/docker:/var/lib/docker
     ports:
       - "65533:8000"
     privileged: true
