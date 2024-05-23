@@ -4,8 +4,8 @@ Run the api service using docker-compose.
 docker-compose -p webapi -d
 ```
 
-Add get/post api in Web/WebAdmin/api/view.py
-### Add api before auth
+### Add get/post api in `Web/WebAdmin/api/view.py`
+1. Add api before auth
 ```python
 class ApiView:
     def post_xxx_yyy(self): ...
@@ -13,7 +13,7 @@ class ApiView:
 ```
 To access api use http protocal to get/post the url /auth/xxx_yyy
 
-### Add api after auth with token
+2. Add api after auth with token
 ```python
 class ApiWithTokenView:
     def post_xxx_yyy(self): ...
@@ -21,7 +21,7 @@ class ApiWithTokenView:
 ```
 To access api use http protocal to get/post the url /api/xxx_yyy
 
-### Add common api
+3. Add common api
 ```python
 class ApiCommonView:
     def post_xxx_yyy(self): ...
